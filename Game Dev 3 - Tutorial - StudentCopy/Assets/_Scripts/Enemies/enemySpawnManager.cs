@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class enemySpawnManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class enemySpawnManager : MonoBehaviour
     //currernt wave we are on 
     private int currentWaveCount = 0;
 
+    public void SpawnerLogic()
+    {
+        StartCoroutine(SpawnWave());
+    }
 
     IEnumerator SpawnWave()
     {
@@ -30,9 +35,9 @@ public class enemySpawnManager : MonoBehaviour
             //instantiate enemy ship prefab using the random number to select a random spawn point from the array of spawn points 
             GameObject spawnedShip = Instantiate(enemyPrefab, spawnPoints[randomInteger]);
             //these change the life speed and sprite of the prefab i just instantiated
-            spawnedShip.GetComponent<EnemyVisual>().enemyData = enemyData[currentWaveCount]);
-            spawnedShip.GetComponent<EnemyMovement>().enemyData = enemyData[currentWaveCount]);
-            spawnedShip.GetComponent<EnemyLife>().enemyData = enemyData[currentWaveCount]);
+            spawnedShip.GetComponent<EnemyVisual>().enemyData = enemyData[currentWaveCount];
+            spawnedShip.GetComponent<EnemyMovement>().enemyData = enemyData[currentWaveCount];
+            spawnedShip.GetComponent<EnemyLife>().enemyData = enemyData[currentWaveCount];
             //return the time left before the next iteration allowing another ship spawn
             yield return new WaitForSeconds(delayBetweenSpawns);
         }
@@ -46,8 +51,7 @@ public class enemySpawnManager : MonoBehaviour
     yield return new WaitForSeconds(delayBetweenWaves); //wait the time designated for the next wave
     StartCoroutine(SpawnWave());
 
-    public void SpawnerLogic()
-    {
-        StartCoroutine(SpawnWave());
-    }
+    } 
+
+  
 }
