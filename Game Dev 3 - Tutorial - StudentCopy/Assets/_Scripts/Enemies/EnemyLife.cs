@@ -17,7 +17,7 @@ public class EnemyLife : MonoBehaviour
         firingScriptRef = FindObjectOfType<PlayerFiring>();        
         enemyVfx = GetComponent<EnemyVfx>();
         //takes the shipHP from the S.O. and cast it to the enemyHP integer
-        enemyHp = enemyData.shipHp;
+        enemyHp = enemyData.shipHP;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
