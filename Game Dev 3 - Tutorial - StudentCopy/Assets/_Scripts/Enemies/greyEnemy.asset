@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886eb330273d9bd4b8fa6e87633c260c, type: 3}
   m_Name: greyEnemy
   m_EditorClassIdentifier: 
-  shipSprite: {fileID: 0}
-  shipSpeed: 0
-  shipHP: 0
+  shipSprite: {fileID: -1069922475, guid: 0cdc11648b682ce44b238fd9d78bb1b5, type: 3}
+  shipSpeed: 2
+  shipHP: 3

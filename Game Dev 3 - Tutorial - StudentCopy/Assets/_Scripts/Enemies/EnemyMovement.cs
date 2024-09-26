@@ -1,11 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+//I have removed the unecessary libraries again
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {    
     //Default move value
     private float movementSpeed = 1f;
+    public EnemyData enemyData; //calling the EnemyData scriptable object so we can access it in this script
+
+    private void Start()
+    {
+        movementSpeed = enemyData.shipSpeed;//this takes the value of ship speed (the variable in EnemyData SO)
+        // it then casts it to our movementSpeed variable
+    }
 
     private void FixedUpdate()
     {

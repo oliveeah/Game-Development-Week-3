@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
@@ -10,12 +8,16 @@ public class EnemyLife : MonoBehaviour
     private PlayerFiring firingScriptRef;
     //Ref to the enemy vfx script
     private EnemyVfx enemyVfx;
+    //ref to S.O.
+    public EnemyData enemyData;
 
     private void Start()
     {
         //Gets the data
         firingScriptRef = FindObjectOfType<PlayerFiring>();        
         enemyVfx = GetComponent<EnemyVfx>();
+        //takes the shipHP from the S.O. and cast it to the enemyHP integer
+        enemyHp = enemyData.shipHp;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
